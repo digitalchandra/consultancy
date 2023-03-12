@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const SliderModule = new mongoose.Schema({
+const SliderSchema = new mongoose.Schema({
     tytle:{
         type:String,
         require:[true,"Title Required"],
@@ -18,3 +18,5 @@ const SliderModule = new mongoose.Schema({
     }
 
 })
+const SliderModule = mongoose.model('slider',SliderSchema)
+module.exports=SliderModule;

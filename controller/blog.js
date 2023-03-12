@@ -2,7 +2,7 @@ const BlogModule = require('../models/blog')
 
 
 const createBlog = async(req,res)=>{
- console.log(req.body)
+
     try{
         const newblog = await BlogModule.create(req.body);
         res.json(newblog)

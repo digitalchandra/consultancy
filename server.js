@@ -8,6 +8,7 @@ const productModule = require('./routs/product')
 const servicesModule = require('./routs/services')
 const videoModule = require('./routs/video')
 const useBlog = require('./routs/blog')
+const useSlier = require('./routs/slider')
 const cors = require('cors')
 const app = express()
 
@@ -18,8 +19,10 @@ dbConnection()
 app.use('/contact',useContact)
 app.use('/blogposts',useBlog)
 app.use('/products',productModule)
- app.use('/services', servicesModule)
+app.use('/services', servicesModule)
 app.use('/videos',videoModule)
+app.use('/sliders',useSlier)
+
 
 app.get('/',(req,res)=>{
     res.send("<h3> Blog Site  </h3>")
