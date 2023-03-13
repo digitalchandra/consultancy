@@ -9,7 +9,9 @@ const servicesModule = require('./routs/services')
 const videoModule = require('./routs/video')
 const useBlog = require('./routs/blog')
 const useSlier = require('./routs/slider')
-const cors = require('cors')
+const FaqModel = require('./routs/faq')
+
+const cors = require('cors');
 const app = express()
 
 app.use(express.json());
@@ -22,6 +24,7 @@ app.use('/products',productModule)
 app.use('/services', servicesModule)
 app.use('/videos',videoModule)
 app.use('/sliders',useSlier)
+app.use('/faqs',FaqModel)
 
 
 app.get('/',(req,res)=>{

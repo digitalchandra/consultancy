@@ -5,14 +5,22 @@ import {Link} from 'react-router-dom'
 import './Slide.css'
 import { useState } from 'react'
 import axios from 'axios'
+import { useEffect } from 'react'
+import{Trash,PencilFill} from 'react-bootstrap-icons'
+
 
 export default function AllSlide() {
     const [slide, setSlide] = useState({
+    
         title:"",
-        link:""
+        featureimage:"",
+        description:""
+
     })
 
-    const{title,link} = slide;
+    const [getSlidr,setSlider] = useState()
+
+    const{title,featureimage, description} = slide;
 
     const carrySlide = e=>{
         setSlide({...slide,[e.target.name]:e.target.value})
@@ -20,11 +28,21 @@ export default function AllSlide() {
 
     const onSumbit = async e=>{
         e.preventDefault()
-        await axios.post("",slide)
+        await axios.post("http://localhost:4000/sliders/",slide)
     }
 
+    const storeSlide = async()=>{
+        const serverSlider = await axios.get('http://localhost:4000/sliders')
+        setSlider(serverSlider.data.reverse())
+    }
+    useEffect(()=>{
+        storeSlide();
+    },[])
 
-
+    const deleteSlider = async _id=>{
+        await axios.delete(`http://localhost:4000/sliders/${_id}`)
+        storeSlide()
+    }
 
   return (
     <>
@@ -58,10 +76,18 @@ export default function AllSlide() {
                                 type="text"
                                 className="form-control mt-4"
                                 placeholder="Link to "
-                                name="link"
-                                value={link}
+                                name="featureimage"
+                                value={featureimage}
                                 onChange={e=>carrySlide(e)}
-                            />  
+                            /> 
+                              <textarea 
+                              class="form-control mt-4" 
+                              id="exampleFormControlTextarea1" 
+                              rows="3"
+                              name="description"
+                              value={description}
+                              onChange={e=>carrySlide(e)}
+                              ></textarea> 
                             <button className="btn btn-primary mt-4"> Post Slide </button>
                             </form>
 
@@ -70,32 +96,36 @@ export default function AllSlide() {
 
                     <table class="table">
                             <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
-                            </tbody>
+                                 <tr>
+                                 <th scope="col">S.N.</th>
+                                 <th scope="col">First</th>
+                                 <th scope="col">Action</th>
+                                 
+                                 </tr>
+                             </thead>
+                        
+                        {
+                            getSlidr?.map((getSlidr,index)=>{
+                            return(
+
+                                <tbody>
+                                    <tr>
+                                    <th scope="row" key={index}>{index+1}</th>
+                                    <td>{getSlidr.title}</td>
+                                    
+                                    <td>
+                                      <Link to={`/editslide/${getSlidr._id}`}>  <button className='btn btn-success'> <PencilFill/> </button> </Link>
+                                        <button onClick={()=>deleteSlider(getSlidr._id)} className='btn btn-danger'> <Trash/> </button>
+                                    </td>
+                                    </tr>
+                                
+                                </tbody>
+                             )
+                            })
+                                           
+                        }
+                       
+             
                             </table>
                     </div>
                 </div>

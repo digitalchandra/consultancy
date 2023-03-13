@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const SliderSchema = new mongoose.Schema({
-    tytle:{
+    title:{
         type:String,
         require:[true,"Title Required"],
         minlength:[10,"min lenght should be 10"],

@@ -16,7 +16,7 @@ router.get('/',returnSlider)
 
 router.get('/:sliderId',returnSingleSlide)
 
-router.patch('/:silderId',updateSlider)
+router.patch('/:sliderId',updateSlider)
 
 router.delete('/:sliderId',deleteSlider)
 
