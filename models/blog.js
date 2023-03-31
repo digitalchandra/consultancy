@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
+    username:{
+        type:mongoose.Schema.Types.ObjectId,
+        require:[true, 'please enter a text value'],
+        ref:'User',
+    },
+
     title:{
         type:String,
         require:true,

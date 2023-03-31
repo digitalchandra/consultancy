@@ -1,4 +1,3 @@
-const { resetWatchers } = require('nodemon/lib/monitor/watch')
 const SliderModule = require('../models/slider')
 
 const createSlider = async (req,res)=>{

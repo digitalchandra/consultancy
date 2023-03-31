@@ -47,7 +47,7 @@ export default function AllFaq() {
                     <th key={index} scope="row"> {index+1}</th>
                       <td>{faq.title}</td>
                       <td>
-                        <button className='btn btn-success'> edit </button>
+                        <Link to={`/editfaq/${faq._id}`}> <button className='btn btn-success'> edit </button> </Link>
                         <button className='btn btn-danger'> delete </button>
                       </td>
                     </tr>

@@ -3,6 +3,7 @@ import Topbar from '../compoment/Topbar'
 import Nav from '../compoment/Nav'
 
 export default function AddSlide() {
+    
   return (
     <>
     <Topbar/>

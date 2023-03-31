@@ -28,6 +28,7 @@ import EditVideo from './backend/video/EditVideo';
 import AllFaq from './backend/faq/AllFaq';
 import EditSlide from './backend/slide/EditSlide';
 import AddFaq from './backend/faq/AddFaq';
+import EditFaq from './backend/faq/EditFaq';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
             <Route path ="/allfaq" element={<AllFaq/>}/>
             <Route  path="/editslide/:_id" element={<EditSlide/>}/>
             <Route path="/addfaq" element={<AddFaq/>}/>
+            <Route path="/editfaq/_id" element={<EditFaq/>}/>
 
 
         </Routes>
