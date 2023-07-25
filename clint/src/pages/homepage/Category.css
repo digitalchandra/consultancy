@@ -2,3 +2,44 @@
     background-color: #f9f9f9;
     
 }
+.slide{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    margin-top: 0px !important; 
+    position: relative;
+}
+.slide>img{
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:99;
+    object-fit: cover;
+}
+
+.slide .overlay{
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 35, 82, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:999
+}
+.overlay h2{
+    margin-top: 170px;
+    font-size: 3em;
+    color: #fff;
+}
+.overlay p{
+    color: #fff;
+}
+.content{
+    text-align: center;
+}
+.category{
+    margin-top: 50px !important;
+}

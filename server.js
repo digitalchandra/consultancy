@@ -11,6 +11,7 @@ const useBlog = require('./routs/blog')
 const useSlier = require('./routs/slider')
 const FaqModel = require('./routs/faq')
 const User = require('./routs/user')
+const Exam = require('./routs/exam')
 
 const cors = require('cors');
 const app = express()
@@ -27,6 +28,7 @@ app.use('/videos',videoModule)
 app.use('/sliders',useSlier)
 app.use('/faqs',FaqModel)
 app.use('/Users', User)
+app.use('/testpraparation',Exam)
 
 app.get('/',(req,res)=>{
     res.send("<h3> Blog Site  </h3>")

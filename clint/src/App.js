@@ -29,6 +29,7 @@ import AllFaq from './backend/faq/AllFaq';
 import EditSlide from './backend/slide/EditSlide';
 import AddFaq from './backend/faq/AddFaq';
 import EditFaq from './backend/faq/EditFaq';
+import AllTest from './backend/testpreparation/AllTest';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             <Route  path="/editslide/:_id" element={<EditSlide/>}/>
             <Route path="/addfaq" element={<AddFaq/>}/>
             <Route path="/editfaq/_id" element={<EditFaq/>}/>
+            <Route path="/alltest" element={<AllTest/>}/>
 
 
         </Routes>
